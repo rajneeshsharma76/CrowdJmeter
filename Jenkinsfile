@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('run test') {
+        stage('Deploy') {
             steps {
-                sh '/opt/jmeter/bin/jmeter -n -t Test.jmx'
+                sh 'scp -r $WORKSPACE/* root@ec2-54-213-139-126.us-west-2.compute.amazonaws.com:/tmp/jmeter/bin/ && ssh -T root@ec2-54-213-139-126.us-west-2.compute.amazonaws.com '/tmp/jmeter/bin/jmeter -n -t load_home_page.jmx &'
             }
         }
 
