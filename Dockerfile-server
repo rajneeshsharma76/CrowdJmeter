@@ -1,0 +1,5 @@
+FROM floodio/jmeter
+COPY TaskForce.jmx /jmeter/bin
+COPY taskforce.csv /jmeter/bin
+COPY jstatd.all.policy /jmeter/bin
+#COPY Var.sh  /jmeter/bin/
